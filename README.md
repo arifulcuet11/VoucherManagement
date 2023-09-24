@@ -47,4 +47,13 @@ To **stop the application**:
 
 - The MySQL database is exposed on **port 3306**. If you need to connect to it from a client outside the Docker network (or directly when running without Docker), you can use `localhost` and port `3306`.
 
+## API Documentation
+
+The API is documented using Swagger. You can access the Swagger UI by following the link below:
+```
+http://localhost:8080/swagger/index.html
+```
+The Swagger documentation provides detailed information about the API endpoints, request parameters, and response formats.
+
+
 
