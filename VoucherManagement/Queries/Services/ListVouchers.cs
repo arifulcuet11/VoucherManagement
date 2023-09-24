@@ -1,22 +1,34 @@
-﻿using VoucherManagement.Queries.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using VoucherManagement.DatabaseContext;
+using VoucherManagement.Queries.Interfaces;
 
 namespace VoucherManagement.Queries.Services
 {
     public class ListVouchers : IListVouchers
     {
-        public ListVouchers() { }
+        private readonly VoucherContext _voucherContext;
+        public ListVouchers(VoucherContext voucherContext)
+        {
+            _voucherContext = voucherContext;
+        }
+
         public async Task<List<string>> ListAsync()
         {
-           /*
-             * DO-TO: Implement this method
-            */
+            var codes = new List<string>();
 
-            var result = new List<string>();
-            result.Add("Voucher 1");
-            result.Add("Voucher 2");
-            result.Add("Voucher 3");
+            /*
+             * TO-D0: Implement this method
+             * All logic here
+             */
 
-            return result;
+            var vouchers = await _voucherContext.Vouchers.ToListAsync();
+
+            if (vouchers != null && vouchers.Count > 0)
+            {
+                codes = vouchers.Select(x => x.Code).ToList();
+            }
+
+            return codes;
         }
     }
 }

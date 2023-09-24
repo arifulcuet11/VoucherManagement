@@ -74,9 +74,9 @@ namespace VoucherManagement.Controllers
             catch (Exception)
             {
                 /*
-                 * ToDo: Log exception
+                 * execption handle
                  */
-                throw;
+                 throw;
             }
 
         }
@@ -93,12 +93,25 @@ namespace VoucherManagement.Controllers
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                /*
-                 * ToDo: Log exception
-                 */
-                throw;
+                int statusCode = (int)HttpStatusCode.InternalServerError;
+
+                if (ex.Data.Contains("StatusCode") && Enum.TryParse(ex.Data["StatusCode"].ToString(), out HttpStatusCode httpStatusCode))
+                {
+                    statusCode = (int)httpStatusCode;
+                };
+
+                return StatusCode(statusCode, new ErrorResponse
+                {
+                    Status = statusCode,
+                    Title = "Error validating voucher.",
+                    Error = new Error
+                    {
+                        Message = ex.Message,
+                        Details = ex.StackTrace
+                    }
+                });
             }
 
         }
