@@ -56,4 +56,33 @@ http://localhost:8080/swagger/index.html
 The Swagger documentation provides detailed information about the API endpoints, request parameters, and response formats.
 
 
+## Command Query Responsibility Segregation (CQRS)
+
+This project follows the CQRS (Command Query Responsibility Segregation) design pattern.
+
+### How CQRS is Implemented
+
+In this project:
+
+- **Commands** are responsible for actions that change the state of the system. For example, creating, updating, or deleting data.
+
+- **Queries** are responsible for retrieving data from the system. They do not modify the state of the system and are used for reading purposes.
+
+By separating commands and queries, we can optimize each path independently. This allows for more efficient handling of both write and read operations.
+
+### When to Use CQRS
+
+CQRS is particularly useful in scenarios where:
+
+- There is complex business logic involved.
+- There are high scalability requirements.
+- There is a need for independent optimization of read and write operations.
+
+It's important to note that while CQRS can provide benefits in certain scenarios, it can also introduce complexity. It should be applied judiciously based on the specific requirements of the system.
+
+For more detailed information on CQRS, refer to [this resource](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs).
+
+
+
+
 
