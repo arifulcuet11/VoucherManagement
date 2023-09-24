@@ -53,6 +53,12 @@ The API is documented using Swagger. You can access the Swagger UI by following 
 ```
 http://localhost:8080/swagger/index.html
 ```
+**API Endpoint are:
+```
+[POST] /api/vouchers
+[GET] /api/vouchers/codes
+[POST] /api/vouchers/validate/{code}
+```
 The Swagger documentation provides detailed information about the API endpoints, request parameters, and response formats.
 
 

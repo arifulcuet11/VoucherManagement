@@ -30,6 +30,7 @@ namespace VoucherManagement.Command.Services
 
             Validate(voucher);
 
+            await UpdateVoucherAsync(voucher);
 
             return new ValidateVoucherResponse()
             {
@@ -38,12 +39,13 @@ namespace VoucherManagement.Command.Services
             };
         }
 
-        private void UpdateVoucherAsync(Voucher voucher)
+        private Task UpdateVoucherAsync(Voucher voucher)
         {
             /*
               * Update voucher table based on reuirement and usages    
               * All logic here
               */
+            return Task.CompletedTask;
         }
 
         private void Validate(Voucher voucher)
