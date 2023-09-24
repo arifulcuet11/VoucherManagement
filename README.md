@@ -53,7 +53,7 @@ The API is documented using Swagger. You can access the Swagger UI by following 
 ```
 http://localhost:8080/swagger/index.html
 ```
-**API Endpoint are:
+**API Endpoints:**
 ```
 [POST] /api/vouchers
 [GET] /api/vouchers/codes
